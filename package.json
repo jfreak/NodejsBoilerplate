@@ -1,0 +1,27 @@
+{
+  "name": "Nodejs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "chalk": "^2.4.1",
+    "compression": "^1.7.3",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
+    "errorhandler": "^1.5.0",
+    "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "express-status-monitor": "^1.2.3",
+    "lusca": "^1.6.1",
+    "mongoose": "^5.3.12",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "request": "^2.88.0"
+  }
+}
