@@ -1,8 +1,8 @@
 const express = require('express');
 const session = require('express-session');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const flash = require('express-flash');
 const expressStatusMonitor = require('express-status-monitor');
 const compression = require('compression');
@@ -14,9 +14,17 @@ const dotenv = require('dotenv');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const passport = require('passport');
+const expressValidator = require('express-validator');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+/**
+ * API keys and Passport configuration.
+ */
+const passportConfig = require('./config/passport');
+
 
 const app = express();
 
@@ -64,7 +72,8 @@ app.use((req, res, next) => {
 });
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
